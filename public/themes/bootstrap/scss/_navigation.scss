@@ -383,7 +383,6 @@ li.fast_filter {
   z-index: 800;
   text-shadow: 0 1px 0 $white;
   filter: dropshadow(color = $white, offx = 0, offy = 1);
-  border: 1px solid rgba($black, 0.125);
 }
 
 @include color-mode(dark) {
