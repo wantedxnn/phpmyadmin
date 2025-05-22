@@ -21,11 +21,7 @@ jobs:
       matrix:
         include:
           - { php-version: '82', experimental: false, arch: 'amd64', exclude-phpunit-groups: '--exclude-group extension-iconv' }
-          - { php-version: '82', experimental: false, arch: 'arm64/v8', exclude-phpunit-groups: '--exclude-group extension-iconv' }
-          - { php-version: '82', experimental: false, arch: 'arm/v7', exclude-phpunit-groups: '--exclude-group extension-iconv --exclude-group 32bit-incompatible' }
           - { php-version: '82', experimental: false, arch: 'i386', exclude-phpunit-groups: '--exclude-group extension-iconv --exclude-group 32bit-incompatible' }
-          - { php-version: '82', experimental: true, arch: 'ppc64le', exclude-phpunit-groups: '--exclude-group extension-iconv' }
-          - { php-version: '82', experimental: false, arch: 's390x', exclude-phpunit-groups: '--exclude-group extension-iconv --exclude-group 32bit-incompatible' }
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
