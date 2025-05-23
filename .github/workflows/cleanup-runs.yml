@@ -1,24 +1,72 @@
-name: Clean Up Workflow Runs
+name: Clean Old Workflow Runs
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: # Allows manual triggering
+  schedule:
+    - cron: '0 0 * * 0' # Runs every Sunday at midnight UTC
 
 jobs:
-  cleanup:
+  clean_runs:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: write # Required to delete workflow runs
+
     steps:
-      - name: List workflow runs
-        run: |
-          gh api repos/${{ github.repository }}/actions/runs \
-            --jq '.workflow_runs[] | select(.status == "completed") | .id' \
-            --paginate > runs.txt
-          
-          # Get all but the most recent 30 runs
-          tail -n +31 runs.txt > runs_to_delete.txt
-          
-          # Delete old runs
-          while read run_id; do
-            gh api repos/${{ github.repository }}/actions/runs/$run_id -X DELETE
-          done < runs_to_delete.txt
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: List and Delete Workflow Runs
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const retentionDays = 30; // Adjust this value as needed
+
+            console.log(`Cleaning workflow runs older than ${retentionDays} days for ${owner}/${repo}`);
+
+            const cutoffDate = new Date();
+            cutoffDate.setDate(cutoffDate.getDate() - retentionDays);
+
+            let page = 1;
+            let runsDeleted = 0;
+            let hasMorePages = true;
+
+            while (hasMorePages) {
+              const { data: { workflow_runs } } = await github.rest.actions.listWorkflowRunsForRepo({
+                owner,
+                repo,
+                per_page: 100, // Max per page
+                page,
+                status: 'completed' // Only consider completed runs for deletion
+              });
+
+              if (workflow_runs.length === 0) {
+                hasMorePages = false;
+                break;
+              }
+
+              for (const run of workflow_runs) {
+                const runCreatedAt = new Date(run.created_at);
+
+                if (runCreatedAt < cutoffDate) {
+                  console.log(`Deleting workflow run ID: ${run.id}, Name: ${run.name}, Created At: ${run.created_at}`);
+                  try {
+                    await github.rest.actions.deleteWorkflowRun({
+                      owner,
+                      repo,
+                      run_id: run.id
+                    });
+                    runsDeleted++;
+                  } catch (error) {
+                    console.error(`Failed to delete workflow run ID: ${run.id}. Error: ${error.message}`);
+                  }
+                }
+              }
+
+              if (workflow_runs.length < 100) {
+                hasMorePages = false; // No more runs on this page, so no more pages
+              } else {
+                page++;
+              }
+            }
+
+            console.log(`Successfully deleted ${runsDeleted} workflow runs.`);
