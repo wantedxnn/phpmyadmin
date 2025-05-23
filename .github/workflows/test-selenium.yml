@@ -12,7 +12,7 @@ permissions:
   contents: read
 
 env:
-  php-version: "8.2"
+  php-version: "8.4"
 
 jobs:
   selenium:
@@ -103,7 +103,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '16'
+          node-version: '22'
           cache: 'yarn'
 
       - name: Install modules
