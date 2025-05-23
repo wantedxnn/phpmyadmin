@@ -5,11 +5,20 @@ on:
 
 jobs:
   cleanup:
-    name: Cleanup Workflow Runs
     runs-on: ubuntu-latest
     steps:
-      - name: Clean up workflow runs
-        uses: rokroskar/workflow-run-cleanup-action@master
+      - name: List workflow runs
+        run: |
+          gh api repos/${{ github.repository }}/actions/runs \
+            --jq '.workflow_runs[] | select(.status == "completed") | .id' \
+            --paginate > runs.txt
+          
+          # Get all but the most recent 30 runs
+          tail -n +31 runs.txt > runs_to_delete.txt
+          
+          # Delete old runs
+          while read run_id; do
+            gh api repos/${{ github.repository }}/actions/runs/$run_id -X DELETE
+          done < runs_to_delete.txt
         env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          DEBUG: FALSE
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
