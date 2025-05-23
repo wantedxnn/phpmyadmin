@@ -212,7 +212,9 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         $(this).on('change', function () {
             const colIsStar = $(this).val() === '*';
 
-            colIsStar && $(this).siblings('.col_alias').val('');
+            if (colIsStar) {
+                $(this).siblings('.col_alias').val('');
+            }
             $(this).siblings('.col_alias').prop('disabled', colIsStar);
         });
     });
