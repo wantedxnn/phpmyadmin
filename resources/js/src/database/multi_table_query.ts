@@ -216,6 +216,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                 $(this).siblings('.col_alias').val('');
             }
             $(this).siblings('.col_alias').prop('disabled', colIsStar);
+            
         });
     });
 
