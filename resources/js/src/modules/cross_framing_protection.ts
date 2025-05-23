@@ -13,7 +13,8 @@ const crossFramingProtection = (): void => {
     }
 
     if (window.self !== window.top) {
-         window.top.location.href = window.self.location.href;
+        window.top.location.href = window.self.location.href;
+
         return;
     }
 
