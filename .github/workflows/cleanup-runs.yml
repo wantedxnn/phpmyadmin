@@ -1,0 +1,15 @@
+name: Clean Up Workflow Runs
+
+on:
+  workflow_dispatch:
+
+jobs:
+  cleanup:
+    name: Cleanup Workflow Runs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clean up workflow runs
+        uses: rokroskar/workflow-run-cleanup-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEBUG: FALSE
