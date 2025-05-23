@@ -188,7 +188,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
     editor.getDoc().on('change', function (): void {
         const query: string = editor.getDoc().getValue();
 
-        $('#copy_query').prop('disabled', query === '');
+        void $('#copy_query').prop('disabled', query === '');
     });
 
     $('#copy_query').on('click', function (): void {
