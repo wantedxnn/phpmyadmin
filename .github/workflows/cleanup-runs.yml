@@ -19,7 +19,7 @@ jobs:
           script: |
             const owner = context.repo.owner;
             const repo = context.repo.repo;
-            const retentionDays = 30; // Adjust this value as needed
+            const retentionDays = 0;
 
             console.log(`Cleaning workflow runs older than ${retentionDays} days for ${owner}/${repo}`);
 
