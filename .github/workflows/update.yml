@@ -1,0 +1,16 @@
+name: composer update
+
+on:
+   workflow_dispatch: # Allows manual triggering from the GitHub UI
+
+jobs:
+  composer_update_job:
+    runs-on: ubuntu-latest
+    name: composer update
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: composer update action
+        uses: kawax/composer-update-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
