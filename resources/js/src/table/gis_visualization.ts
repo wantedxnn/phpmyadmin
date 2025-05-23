@@ -267,7 +267,7 @@ class SvgVisualization extends GisVisualization {
         $(window).on('resize', this.boundOnResize);
     }
 
-    private unbindEvents() {
+    private unbindEvents () {
         $(this.svgEl)
             .off('dblclick', this.boundOnPlotDblClick)
             .off('dragstart', this.boundOnDragStart)
