@@ -1525,14 +1525,12 @@ button.btn {
 
 button.jsPrintButton {
   background-color: unset;
-  border-color: unset;
   border: unset;
 
   &:hover,
   &:focus,
   &:active {
     background-color: unset;
-    border-color: unset;
     border: unset;
   }
 }
@@ -2086,7 +2084,7 @@ textarea {
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgb(0, 0, 0 / 0.6);
   height: 100%;
   z-index: 999;
   color: white;
@@ -2166,14 +2164,14 @@ textarea {
 
     .minimize:hover,
     .close:hover {
-      background: rgba(155, 149, 149, 0.78);
+      background: rgb(155, 149, 149 / 0.78);
       cursor: pointer;
     }
   }
 }
 
 .pma_drop_result h2 .close:hover {
-  background: rgba(155, 149, 149, 0.78);
+  background: rgb(155, 149, 149 / 0.78);
   cursor: pointer;
 }
 
