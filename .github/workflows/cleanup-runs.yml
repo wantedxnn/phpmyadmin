@@ -1,9 +1,7 @@
-name: Clean Old Workflow Runs
+name: Manual Clean All Workflow Runs
 
 on:
-  workflow_dispatch: # Allows manual triggering
-  schedule:
-    - cron: '0 0 * * 0' # Runs every Sunday at midnight UTC
+  workflow_dispatch: # Allows manual triggering from the GitHub UI
 
 jobs:
   clean_runs:
@@ -13,18 +11,14 @@ jobs:
       actions: write # Required to delete workflow runs
 
     steps:
-      - name: List and Delete Workflow Runs
+      - name: Delete All Completed Workflow Runs
         uses: actions/github-script@v6
         with:
           script: |
             const owner = context.repo.owner;
             const repo = context.repo.repo;
-            const retentionDays = 0;
 
-            console.log(`Cleaning workflow runs older than ${retentionDays} days for ${owner}/${repo}`);
-
-            const cutoffDate = new Date();
-            cutoffDate.setDate(cutoffDate.getDate() - retentionDays);
+            console.log(`Attempting to delete ALL completed workflow runs for ${owner}/${repo}`);
 
             let page = 1;
             let runsDeleted = 0;
@@ -45,20 +39,16 @@ jobs:
               }
 
               for (const run of workflow_runs) {
-                const runCreatedAt = new Date(run.created_at);
-
-                if (runCreatedAt < cutoffDate) {
-                  console.log(`Deleting workflow run ID: ${run.id}, Name: ${run.name}, Created At: ${run.created_at}`);
-                  try {
-                    await github.rest.actions.deleteWorkflowRun({
-                      owner,
-                      repo,
-                      run_id: run.id
-                    });
-                    runsDeleted++;
-                  } catch (error) {
-                    console.error(`Failed to delete workflow run ID: ${run.id}. Error: ${error.message}`);
-                  }
+                console.log(`Deleting workflow run ID: ${run.id}, Name: ${run.name}, Created At: ${run.created_at}`);
+                try {
+                  await github.rest.actions.deleteWorkflowRun({
+                    owner,
+                    repo,
+                    run_id: run.id
+                  });
+                  runsDeleted++;
+                } catch (error) {
+                  console.error(`Failed to delete workflow run ID: ${run.id}. Error: ${error.message}`);
                 }
               }
 
