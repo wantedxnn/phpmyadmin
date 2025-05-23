@@ -286,7 +286,7 @@ class SvgVisualization extends GisVisualization {
             .off('click', '.left_arrow', this.boundOnLeftArrowClick)
             .off('click', '.right_arrow', this.boundOnRightArrowClick)
             .off('click', '.up_arrow', this.boundOnUpArrowClick)
-            .off('click', '.down_arrow'), this.boundOnDownArrowClick;
+            .off('click', '.down_arrow', this.boundOnDownArrowClick);
 
         $(window).off('resize', this.boundOnResize);
     }
