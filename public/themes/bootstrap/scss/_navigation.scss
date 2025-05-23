@@ -51,7 +51,7 @@
 
   #navipanellinks {
     padding: 8px 10px;
-    background-color: rgba(var(--#{$prefix}body-color-rgb), 0.03);
+    background-color: rgb(var(--#{$prefix}body-color-rgb) / 0.03);
 
     a {
       display: inline-block;
@@ -399,7 +399,7 @@ li.fast_filter {
       &.activePointer,
       &.selected {
         color: var(--#{$prefix}body-color);
-        background-color: rgba(var(--#{$prefix}body-color-rgb), 0.03);
+        background-color: rgb(var(--#{$prefix}body-color-rgb) / 0.03);
       }
     }
   }
