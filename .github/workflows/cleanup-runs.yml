@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clean up workflow runs
-        uses: rokroskar/workflow-run-cleanup-action@v1
+        uses: rokroskar/workflow-run-cleanup-action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           DEBUG: FALSE
