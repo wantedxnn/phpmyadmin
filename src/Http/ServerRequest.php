@@ -68,7 +68,7 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function withAddedHeader($name, $value): object
+    public function withAddedHeader($name, $value): Psr\Http\Message\MessageInterface
     {
         $serverRequest = $this->serverRequest->withAddedHeader($name, $value);
 
