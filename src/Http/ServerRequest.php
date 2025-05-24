@@ -118,7 +118,7 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function withMethod($method): object
+    public function withMethod($method): Psr\Http\Message\RequestInterface
     {
         $serverRequest = $this->serverRequest->withMethod($method);
 
