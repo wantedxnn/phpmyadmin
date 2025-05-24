@@ -76,7 +76,7 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function withoutHeader($name): object
+    public function withoutHeader($name): Psr\Http\Message\MessageInterface
     {
         $serverRequest = $this->serverRequest->withoutHeader($name);
 
