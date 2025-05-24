@@ -152,7 +152,7 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function withCookieParams(array $cookies): object
+    public function withCookieParams(array $cookies): Psr\Http\Message\ServerRequestInterface
     {
         $serverRequest = $this->serverRequest->withCookieParams($cookies);
 
