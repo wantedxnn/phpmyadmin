@@ -166,7 +166,7 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function withQueryParams(array $query): object
+    public function withQueryParams(array $query): Psr\Http\Message\ServerRequestInterface
     {
         $serverRequest = $this->serverRequest->withQueryParams($query);
 
