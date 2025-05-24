@@ -28,7 +28,7 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function withProtocolVersion($version): object
+    public function withProtocolVersion($version): Psr\Http\Message\MessageInterface
     {
         $serverRequest = $this->serverRequest->withProtocolVersion($version);
 
