@@ -104,7 +104,7 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function withRequestTarget($requestTarget): object
+    public function withRequestTarget($requestTarget): Psr\Http\Message\RequestInterface
     {
         $serverRequest = $this->serverRequest->withRequestTarget($requestTarget);
 
