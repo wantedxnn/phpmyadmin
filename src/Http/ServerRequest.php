@@ -180,7 +180,7 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function withUploadedFiles(array $uploadedFiles): object
+    public function withUploadedFiles(array $uploadedFiles): Psr\Http\Message\ServerRequestInterface
     {
         $serverRequest = $this->serverRequest->withUploadedFiles($uploadedFiles);
 
@@ -194,7 +194,7 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function withParsedBody($data): object
+    public function withParsedBody($data): Psr\Http\Message\ServerRequestInterface
     {
         $serverRequest = $this->serverRequest->withParsedBody($data);
 
@@ -214,7 +214,7 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function withAttribute($name, $value): object
+    public function withAttribute($name, $value): Psr\Http\Message\ServerRequestInterface
     {
         $serverRequest = $this->serverRequest->withAttribute($name, $value);
 
@@ -222,7 +222,7 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function withoutAttribute($name): object
+    public function withoutAttribute($name): Psr\Http\Message\ServerRequestInterface
     {
         $serverRequest = $this->serverRequest->withoutAttribute($name);
 
