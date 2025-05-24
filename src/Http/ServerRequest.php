@@ -126,7 +126,7 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function getUri(): object
+    public function getUri(): Psr\Http\Message\UriInterface
     {
         return $this->serverRequest->getUri();
     }
