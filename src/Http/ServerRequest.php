@@ -90,7 +90,7 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function withBody(StreamInterface $body): object
+    public function withBody(StreamInterface $body): Psr\Http\Message\MessageInterface
     {
         $serverRequest = $this->serverRequest->withBody($body);
 
