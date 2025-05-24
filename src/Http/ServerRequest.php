@@ -84,7 +84,7 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function getBody(): object
+    public function getBody(): Psr\Http\Message\StreamInterface
     {
         return $this->serverRequest->getBody();
     }
