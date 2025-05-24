@@ -22,13 +22,13 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function getProtocolVersion(): string
+    public function getProtocolVersion()
     {
         return $this->serverRequest->getProtocolVersion();
     }
 
     /** @inheritDoc */
-    public function withProtocolVersion($version): Psr\Http\Message\MessageInterface
+    public function withProtocolVersion($version)
     {
         $serverRequest = $this->serverRequest->withProtocolVersion($version);
 
@@ -36,31 +36,31 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function getHeaders(): array
+    public function getHeaders()
     {
         return $this->serverRequest->getHeaders();
     }
 
     /** @inheritDoc */
-    public function hasHeader($name): bool
+    public function hasHeader($name)
     {
         return $this->serverRequest->hasHeader($name);
     }
 
     /** @inheritDoc */
-    public function getHeader($name): array
+    public function getHeader($name)
     {
         return $this->serverRequest->getHeader($name);
     }
 
     /** @inheritDoc */
-    public function getHeaderLine($name): string
+    public function getHeaderLine($name)
     {
         return $this->serverRequest->getHeaderLine($name);
     }
 
     /** @inheritDoc */
-    public function withHeader($name, $value): Psr\Http\Message\MessageInterface
+    public function withHeader($name, $value)
     {
         $serverRequest = $this->serverRequest->withHeader($name, $value);
 
@@ -68,7 +68,7 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function withAddedHeader($name, $value): Psr\Http\Message\MessageInterface
+    public function withAddedHeader($name, $value)
     {
         $serverRequest = $this->serverRequest->withAddedHeader($name, $value);
 
@@ -76,7 +76,7 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function withoutHeader($name): Psr\Http\Message\MessageInterface
+    public function withoutHeader($name)
     {
         $serverRequest = $this->serverRequest->withoutHeader($name);
 
@@ -84,13 +84,13 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function getBody(): Psr\Http\Message\StreamInterface
+    public function getBody()
     {
         return $this->serverRequest->getBody();
     }
 
     /** @inheritDoc */
-    public function withBody(StreamInterface $body): Psr\Http\Message\MessageInterface
+    public function withBody(StreamInterface $body)
     {
         $serverRequest = $this->serverRequest->withBody($body);
 
@@ -98,13 +98,13 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function getRequestTarget(): string
+    public function getRequestTarget()
     {
         return $this->serverRequest->getRequestTarget();
     }
 
     /** @inheritDoc */
-    public function withRequestTarget($requestTarget): Psr\Http\Message\RequestInterface
+    public function withRequestTarget($requestTarget)
     {
         $serverRequest = $this->serverRequest->withRequestTarget($requestTarget);
 
@@ -112,13 +112,13 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function getMethod(): string
+    public function getMethod()
     {
         return $this->serverRequest->getMethod();
     }
 
     /** @inheritDoc */
-    public function withMethod($method): Psr\Http\Message\RequestInterface
+    public function withMethod($method)
     {
         $serverRequest = $this->serverRequest->withMethod($method);
 
@@ -126,13 +126,13 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function getUri(): Psr\Http\Message\UriInterface
+    public function getUri()
     {
         return $this->serverRequest->getUri();
     }
 
     /** @inheritDoc */
-    public function withUri(UriInterface $uri, $preserveHost = false): Psr\Http\Message\RequestInterface
+    public function withUri(UriInterface $uri, $preserveHost = false)
     {
         $serverRequest = $this->serverRequest->withUri($uri, $preserveHost);
 
@@ -140,19 +140,19 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function getServerParams(): array
+    public function getServerParams()
     {
         return $this->serverRequest->getServerParams();
     }
 
     /** @inheritDoc */
-    public function getCookieParams(): array
+    public function getCookieParams()
     {
         return $this->serverRequest->getCookieParams();
     }
 
     /** @inheritDoc */
-    public function withCookieParams(array $cookies): Psr\Http\Message\ServerRequestInterface
+    public function withCookieParams(array $cookies)
     {
         $serverRequest = $this->serverRequest->withCookieParams($cookies);
 
@@ -160,13 +160,13 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function getQueryParams(): array
+    public function getQueryParams()
     {
         return $this->serverRequest->getQueryParams();
     }
 
     /** @inheritDoc */
-    public function withQueryParams(array $query): Psr\Http\Message\ServerRequestInterface
+    public function withQueryParams(array $query)
     {
         $serverRequest = $this->serverRequest->withQueryParams($query);
 
@@ -174,13 +174,13 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function getUploadedFiles(): array
+    public function getUploadedFiles()
     {
         return $this->serverRequest->getUploadedFiles();
     }
 
     /** @inheritDoc */
-    public function withUploadedFiles(array $uploadedFiles): Psr\Http\Message\ServerRequestInterface
+    public function withUploadedFiles(array $uploadedFiles)
     {
         $serverRequest = $this->serverRequest->withUploadedFiles($uploadedFiles);
 
@@ -188,13 +188,13 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function getParsedBody(): mixed
+    public function getParsedBody()
     {
         return $this->serverRequest->getParsedBody();
     }
 
     /** @inheritDoc */
-    public function withParsedBody($data): Psr\Http\Message\ServerRequestInterface
+    public function withParsedBody($data)
     {
         $serverRequest = $this->serverRequest->withParsedBody($data);
 
@@ -202,19 +202,19 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function getAttributes(): array
+    public function getAttributes()
     {
         return $this->serverRequest->getAttributes();
     }
 
     /** @inheritDoc */
-    public function getAttribute($name, $default = null): mixed
+    public function getAttribute($name, $default = null)
     {
         return $this->serverRequest->getAttribute($name, $default);
     }
 
     /** @inheritDoc */
-    public function withAttribute($name, $value): Psr\Http\Message\ServerRequestInterface
+    public function withAttribute($name, $value)
     {
         $serverRequest = $this->serverRequest->withAttribute($name, $value);
 
@@ -222,7 +222,7 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function withoutAttribute($name): Psr\Http\Message\ServerRequestInterface
+    public function withoutAttribute($name)
     {
         $serverRequest = $this->serverRequest->withoutAttribute($name);
 
