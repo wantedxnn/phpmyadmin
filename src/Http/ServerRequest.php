@@ -132,7 +132,7 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function withUri(UriInterface $uri, $preserveHost = false): object
+    public function withUri(UriInterface $uri, $preserveHost = false): Psr\Http\Message\RequestInterface
     {
         $serverRequest = $this->serverRequest->withUri($uri, $preserveHost);
 
