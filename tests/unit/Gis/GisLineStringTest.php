@@ -193,7 +193,13 @@ class GisLineStringTest extends GisGeomTestCase
         $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/linestring-expected.pdf';
-        self::assertStringEqualsFile($fileExpected, $pdf->Output(dest: 'S'));
+        $fileActual = $this->testDir . '/linestring-actual.pdf';
+
+        $pdfContent = $pdf->Output(dest: 'S');
+
+        file_put_contents($fileActual, $pdfContent);
+        
+        self::assertStringEqualsFile($fileExpected, $pdfContent);
     }
 
     /**
