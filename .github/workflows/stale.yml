@@ -4,8 +4,7 @@ permissions:
   issues: write
 
 on:
-  schedule:
-    - cron: "30 1 * * *"
+  workflow_dispatch: # Allows manual triggering from the GitHub UI
 
 jobs:
   run-stale-check:
