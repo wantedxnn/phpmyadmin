@@ -1,0 +1,45 @@
+name: Run Specific PHPUnit Test
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  run-specific-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2' # Adjust to your project's PHP version (e.g., '7.4', '8.0', '8.2', '8.3')
+        extensions: gd # Required for the GD extension test, add other necessary extensions like 'mysqli', 'pdo_mysql', etc.
+        coverage: none # Or 'xdebug', 'pcov' if you need code coverage
+
+    - name: Install Composer dependencies
+      run: composer install --prefer-dist --no-progress --no-interaction
+
+    - name: Create test directory for expected files (if it doesn't exist)
+      run: mkdir -p tests/Gis # Adjust this path if 'tests/Gis' is not where your expected files are stored
+
+    - name: Run specific GisLineStringTest::testPrepareRowAsPdf test
+      run: vendor/bin/phpunit PhpMyAdmin/Tests/Gis/GisLineStringTest.php --filter testPrepareRowAsPdf
+      working-directory: ./ # If your project root is where vendor/bin is, otherwise adjust
+
+    # Optional: If you need to see the generated actual files for debugging
+    - name: Upload generated PDF artifact
+      if: failure() # Only upload if the test fails
+      uses: actions/upload-artifact@v4
+      with:
+        name: generated-pdf-output
+        path: tests/Gis/linestring-actual.pdf # Adjust this path to where your test generates the actual file
+        retention-days: 5 # How long to keep the artifact
