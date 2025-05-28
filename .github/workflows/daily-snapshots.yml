@@ -1,28 +1,85 @@
-name: Daily snapshots
+name: Generate snapshot with cleanup
 
 on:
   pull_request:
     paths:
       - '.github/workflows/daily-snapshots.yml'
       - 'bin/**'
-  workflow_dispatch:
-  schedule:
-    - cron: '0 0 * * *'
+  workflow_dispatch: # Allows manual triggering from the GitHub UI
 
 permissions:
   contents: read
+  actions: write # Required for the cleaning functionality
 
 jobs:
+  clean_runs:
+    name: Clean up old workflow runs
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Delete All Completed Workflow Runs
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            console.log(`Attempting to delete ALL completed workflow runs for ${owner}/${repo}`);
+
+            let page = 1;
+            let runsDeleted = 0;
+            let hasMorePages = true;
+
+            while (hasMorePages) {
+              const { data: { workflow_runs } } = await github.rest.actions.listWorkflowRunsForRepo({
+                owner,
+                repo,
+                per_page: 100, // Max per page
+                page,
+                status: 'completed' // Only consider completed runs for deletion
+              });
+
+              if (workflow_runs.length === 0) {
+                hasMorePages = false;
+                break;
+              }
+
+              for (const run of workflow_runs) {
+                // Skip current run to avoid deleting itself
+                if (run.id === context.runId) continue;
+                
+                console.log(`Deleting workflow run ID: ${run.id}, Name: ${run.name}, Created At: ${run.created_at}`);
+                try {
+                  await github.rest.actions.deleteWorkflowRun({
+                    owner,
+                    repo,
+                    run_id: run.id
+                  });
+                  runsDeleted++;
+                } catch (error) {
+                  console.error(`Failed to delete workflow run ID: ${run.id}. Error: ${error.message}`);
+                }
+              }
+
+              if (workflow_runs.length < 100) {
+                hasMorePages = false; // No more runs on this page, so no more pages
+              } else {
+                page++;
+              }
+            }
+
+            console.log(`Successfully deleted ${runsDeleted} workflow runs.`);
+
   generate-snapshots:
     name: Generate ${{ matrix.version }} snapshots
     runs-on: ubuntu-latest
+    needs: clean_runs
     if: (github.event_name == 'schedule' && github.repository == 'phpmyadmin/phpmyadmin') || (github.event_name != 'schedule')
     strategy:
       fail-fast: false
       matrix:
         include:
-          - { version: '5.2', branch: 'QA_5_2', php-version: '7.2', node-version: '12', python-version: '3.11' }
-          - { version: '6.0', branch: 'master', php-version: '8.2', node-version: '16', python-version: '3.11' }
+          - { version: '6.0', branch: 'master', php-version: '8.2', node-version: '18', python-version: '3.11' }
     steps:
       - name: Check out code
         uses: actions/checkout@v4
