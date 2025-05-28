@@ -33,7 +33,7 @@ jobs:
       run: mkdir -p tests/Gis # Adjust this path if 'tests/Gis' is not where your expected files are stored
 
     - name: Run specific GisLineStringTest::testPrepareRowAsPdf test
-      run: vendor/bin/phpunit PhpMyAdmin/Tests/Gis/GisLineStringTest.php --filter testPrepareRowAsPdf
+      run: vendor/bin/phpunit Tests/Gis/GisLineStringTest.php --filter testPrepareRowAsPdf
       working-directory: ./ # If your project root is where vendor/bin is, otherwise adjust
 
     # Optional: If you need to see the generated actual files for debugging
