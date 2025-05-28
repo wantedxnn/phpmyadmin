@@ -42,7 +42,7 @@ jobs:
             ${{ runner.os }}-composer-
 
       - name: Run Composer Update
-        run: composer update --no-interaction --prefer-dist --optimize-autoloader
+        run: composer update --no-interaction --prefer-dist --optimize-autoloader --with-all-dependencies
         # Add --no-dev if you only want to update production dependencies in the lock file
         # e.g., composer update --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
