@@ -38,9 +38,9 @@ jobs:
 
     # Optional: If you need to see the generated actual files for debugging
     - name: Upload generated PDF artifact
-      if: failure() # Only upload if the test fails
+    #  if: failure() # Only upload if the test fails
       uses: actions/upload-artifact@v4
       with:
         name: generated-pdf-output
-        path: tests/Gis/linestring-actual.pdf # Adjust this path to where your test generates the actual file
+        path: tests/test_data/gis/linestring-actual.pdf # Adjust this path to where your test generates the actual file
         retention-days: 5 # How long to keep the artifact
