@@ -30,13 +30,13 @@ jobs:
       run: composer install --prefer-dist --no-progress --no-interaction
 
     - name: Create test directory for expected files (if it doesn't exist)
-      run: mkdir -p test/Gis # Adjust this path if 'tests/Gis' is not where your expected files are stored
+      run: mkdir -p tests/Gis # Adjust this path if 'tests/Gis' is not where your expected files are stored
 
     - name: Run specific GisLineStringTest::testPrepareRowAsPdf test
       run: vendor/bin/phpunit --no-coverage tests/unit/Gis/GisLineStringTest.php --filter testPrepareRowAsPdf
 
     - name: Run specific GisMultiPolygonTest::testPrepareRowAsPdf test
-      run: --no-coverage vendor/bin/phpunit tests/unit/Gis/GisMultiPolygonTest.php --filter testPrepareRowAsPdf
+      run: vendor/bin/phpunit --no-coverage tests/unit/Gis/GisMultiPolygonTest.php --filter testPrepareRowAsPdf
       working-directory: ./ # If your project root is where vendor/bin is, otherwise adjust
 
     # Upload the generated actual PDF files regardless of test success or failure
