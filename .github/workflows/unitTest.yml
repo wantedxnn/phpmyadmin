@@ -9,6 +9,7 @@ on:
     branches:
       - main
       - develop
+  workflow_dispatch: # Allows manual triggering from the GitHub UI
 
 jobs:
   run-specific-test:
