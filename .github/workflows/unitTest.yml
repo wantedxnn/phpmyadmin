@@ -30,7 +30,7 @@ jobs:
       run: composer install --prefer-dist --no-progress --no-interaction
 
     - name: Create test directory for expected files (if it doesn't exist)
-      run: mkdir -p tests/Gis # Adjust this path if 'tests/Gis' is not where your expected files are stored
+      run: mkdir -p tests/test_data/gis
 
     - name: Run specific GisLineStringTest::testPrepareRowAsPdf test
       run: vendor/bin/phpunit --no-coverage tests/unit/Gis/GisLineStringTest.php --filter testPrepareRowAsPdf
@@ -48,7 +48,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: linestring-actual-pdf
-        path: tests/Gis/linestring-actual.pdf # Adjust this path
+        path: tests/test_data/gis/linestring-actual.pdf # Adjust this path
         retention-days: 5
 
     - name: Upload generated MultiPolygon PDF artifact
@@ -56,5 +56,5 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: multipolygon-actual-pdf
-        path: tests/Gis/multipolygon-actual.pdf # Adjust this path
+        path: tests/test_data/gis/multipolygon-actual.pdf # Adjust this path
         retention-days: 5
