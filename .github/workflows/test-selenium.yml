@@ -1,7 +1,8 @@
 name: "End-to-End tests"
 
 on:
-  push:
+  #push:
+  workflow_dispatch:   # manual trigger
   pull_request:
     types: [opened, synchronize, reopened]
     branches:
