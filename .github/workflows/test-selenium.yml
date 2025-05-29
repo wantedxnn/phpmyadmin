@@ -7,7 +7,6 @@ on:
     types: [opened, synchronize, reopened]
     branches:
       - master
-      - QA_**
 
 permissions:
   contents: read
