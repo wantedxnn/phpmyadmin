@@ -3,10 +3,8 @@ name: Update Composer Lock File
 # Controls when the workflow will run
 on:
   push:
-  pull_request:
-    types: [opened, synchronize, reopened]
-    branches:
-      - master
+    paths:
+      - 'composer.json'
   workflow_dispatch: # Allows manual triggering from the Actions tab
 
 jobs:
