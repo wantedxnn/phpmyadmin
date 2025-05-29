@@ -3,12 +3,12 @@
 name: Mutation tests
 
 on:
-  push:
-    branches:
-      - master
-    paths:
-      - 'src/**.php'
-      - 'tests/unit/**.php'
+#  push:
+#    branches:
+#      - master
+#    paths:
+#      - 'src/**.php'
+#      - 'tests/unit/**.php'
   pull_request:
     branches:
       - master
