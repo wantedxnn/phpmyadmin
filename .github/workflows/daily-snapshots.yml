@@ -1,6 +1,9 @@
 name: Generate snapshot with cleanup
 
 on:
+  push:
+    paths:
+      - 'composer.lock'
   pull_request:
     paths:
       - '.github/workflows/daily-snapshots.yml'
