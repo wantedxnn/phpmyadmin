@@ -522,6 +522,9 @@ rm tests/doctum-config.php
 # Remove readme for github
 rm README.rst
 
+# Remove yarn ignore
+rm .yarnrc
+
 if [ -f ./bin/console ]; then
     # Update the vendors to have the dev vendors
     composer install --no-interaction
