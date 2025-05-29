@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a648551f2d585ec3689de23244bf1a1",
+    "content-hash": "b67046f7e1fdf0ac8b32bb4ebb8853a7",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -9294,16 +9294,16 @@
         },
         {
             "name": "tecnickcom/tcpdf",
-            "version": "6.9.0",
+            "version": "6.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tecnickcom/TCPDF.git",
-                "reference": "f67b761b61f2370a9000d98c3b9111284544f722"
+                "reference": "ea258d4d16e02c799beb58bb75fe192dd26c49d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/f67b761b61f2370a9000d98c3b9111284544f722",
-                "reference": "f67b761b61f2370a9000d98c3b9111284544f722",
+                "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/ea258d4d16e02c799beb58bb75fe192dd26c49d1",
+                "reference": "ea258d4d16e02c799beb58bb75fe192dd26c49d1",
                 "shasum": ""
             },
             "require": {
@@ -9353,7 +9353,7 @@
             ],
             "support": {
                 "issues": "https://github.com/tecnickcom/TCPDF/issues",
-                "source": "https://github.com/tecnickcom/TCPDF/tree/6.9.0"
+                "source": "https://github.com/tecnickcom/TCPDF/tree/6.9.2"
             },
             "funding": [
                 {
@@ -9361,7 +9361,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2025-03-30T16:56:09+00:00"
+            "time": "2025-04-18T16:46:11+00:00"
         },
         {
             "name": "theseer/tokenizer",
