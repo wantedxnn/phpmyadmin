@@ -1,7 +1,8 @@
 name: Frontend analysis and tests
 
 on:
-  push:
+  #push:
+  workflow_dispatch:   # manual trigger
   pull_request:
     paths:
       - 'resources/js/**'
