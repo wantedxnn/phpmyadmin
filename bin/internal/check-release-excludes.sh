@@ -316,6 +316,8 @@ for filePath in ${FILE_LIST}; do
         foundFile;;
         *phar*)
         foundFile;;
+        */.yarnrc)
+        foundFile;;
         *) ;;
     esac
 done
