@@ -20,8 +20,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { php-version: '82', experimental: false, arch: 'amd64', exclude-phpunit-groups: '--exclude-group extension-iconv' }
-          - { php-version: '82', experimental: false, arch: 'i386', exclude-phpunit-groups: '--exclude-group extension-iconv --exclude-group 32bit-incompatible' }
+          - { php-version: '83', experimental: false, arch: 'amd64', exclude-phpunit-groups: '--exclude-group extension-iconv' }
+          - { php-version: '83', experimental: false, arch: 'i386', exclude-phpunit-groups: '--exclude-group extension-iconv --exclude-group 32bit-incompatible' }
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -62,7 +62,7 @@ jobs:
     continue-on-error: ${{ matrix.php-version == '8.5' }}
     strategy:
       matrix:
-        php-version: ['8.2', '8.3', '8.4']
+        php-version: ['8.3', '8.4']
         os: [ubuntu-latest]
         composer-dependency: [locked, highest]
         php-extensions: ['mbstring, iconv, mysqli, zip, gd, bz2']
@@ -129,7 +129,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        php-version: ["8.2"]
+        php-version: ["8.3"]
         os: [ubuntu-latest]
         extension: ["dbase"]
     steps:
