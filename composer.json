@@ -113,7 +113,7 @@
         "phpstan/phpstan-phpunit": "^2.0",
         "phpstan/phpstan-strict-rules": "^2.0",
         "phpstan/phpstan-webmozart-assert": "^2.0",
-        "phpunit/phpunit": "^12.2",
+        "phpunit/phpunit": "^11.2",
         "pragmarx/google2fa-qrcode": "^3.0",
         "psalm/plugin-phpunit": "^0.19",
         "roave/security-advisories": "dev-latest",
