@@ -120,7 +120,7 @@
         "symfony/console": "^7.3",
         "tecnickcom/tcpdf": "^6.10",
         "vimeo/psalm": "^6.12",
-        "web-auth/webauthn-lib": "^5.0",
+        "web-auth/webauthn-lib": "^4.9",
         "phpdocumentor/reflection-docblock": "^5.3"
     },
     "extra": {
