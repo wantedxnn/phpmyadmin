@@ -76,7 +76,7 @@
         "symfony/polyfill-ctype": "^1.32",
         "symfony/polyfill-mbstring": "^1.32",
         "twig/twig": "^3.21",
-        "webmozart/assert": "^2.0",
+        "webmozart/assert": "^1.11",
         "williamdes/mariadb-mysql-kbs": "^1.3"
     },
     "conflict": {
@@ -120,7 +120,8 @@
         "symfony/console": "^7.3",
         "tecnickcom/tcpdf": "^6.10",
         "vimeo/psalm": "^6.12",
-        "web-auth/webauthn-lib": "^5.2"
+        "web-auth/webauthn-lib": "^5.0",
+        "phpdocumentor/reflection-docblock": "^5.3"
     },
     "extra": {
         "branch-alias": {
@@ -154,7 +155,7 @@
             "composer/package-versions-deprecated": true
         },
         "platform": {
-            "php": "8.2.99"
+            "php": "8.3.0"
         }
     }
 }
