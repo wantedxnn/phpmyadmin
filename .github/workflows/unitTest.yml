@@ -22,7 +22,7 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.2' # Adjust to your project's PHP version (e.g., '7.4', '8.0', '8.2', '8.3')
+        php-version: '8.3' # Adjust to your project's PHP version (e.g., '7.4', '8.0', '8.2', '8.3')
         extensions: gd # Required for the GD extension test, add other necessary extensions like 'mysqli', 'pdo_mysql', etc.
         coverage: none # Or 'xdebug', 'pcov' if you need code coverage
 
