@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6d0f284dd798fdefe9f3f4db39113935",
+    "content-hash": "6385eeed689f482a9e07414c943582ef",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -4184,6 +4184,70 @@
             "time": "2025-05-05T16:03:34+00:00"
         },
         {
+            "name": "lcobucci/clock",
+            "version": "3.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lcobucci/clock.git",
+                "reference": "db3713a61addfffd615b79bf0bc22f0ccc61b86b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lcobucci/clock/zipball/db3713a61addfffd615b79bf0bc22f0ccc61b86b",
+                "reference": "db3713a61addfffd615b79bf0bc22f0ccc61b86b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~8.2.0 || ~8.3.0 || ~8.4.0",
+                "psr/clock": "^1.0"
+            },
+            "provide": {
+                "psr/clock-implementation": "1.0"
+            },
+            "require-dev": {
+                "infection/infection": "^0.29",
+                "lcobucci/coding-standard": "^11.1.0",
+                "phpstan/extension-installer": "^1.3.1",
+                "phpstan/phpstan": "^1.10.25",
+                "phpstan/phpstan-deprecation-rules": "^1.1.3",
+                "phpstan/phpstan-phpunit": "^1.3.13",
+                "phpstan/phpstan-strict-rules": "^1.5.1",
+                "phpunit/phpunit": "^11.3.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lcobucci\\Clock\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Luís Cobucci",
+                    "email": "lcobucci@gmail.com"
+                }
+            ],
+            "description": "Yet another clock abstraction",
+            "support": {
+                "issues": "https://github.com/lcobucci/clock/issues",
+                "source": "https://github.com/lcobucci/clock/tree/3.3.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/lcobucci",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/lcobucci",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2024-09-24T20:45:14+00:00"
+        },
+        {
             "name": "league/uri",
             "version": "7.5.1",
             "source": {
@@ -6131,6 +6195,58 @@
                 "source": "https://github.com/php-fig/event-dispatcher/tree/1.0.0"
             },
             "time": "2019-01-08T18:20:26+00:00"
+        },
+        {
+            "name": "psr/http-client",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-client.git",
+                "reference": "bb5906edc1c324c9a05aa0873d40117941e5fa90"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-client/zipball/bb5906edc1c324c9a05aa0873d40117941e5fa90",
+                "reference": "bb5906edc1c324c9a05aa0873d40117941e5fa90",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0 || ^8.0",
+                "psr/http-message": "^1.0 || ^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Client\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP clients",
+            "homepage": "https://github.com/php-fig/http-client",
+            "keywords": [
+                "http",
+                "http-client",
+                "psr",
+                "psr-18"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/http-client"
+            },
+            "time": "2023-09-23T14:17:50+00:00"
         },
         {
             "name": "revolt/event-loop",
@@ -8558,80 +8674,6 @@
             "time": "2024-10-20T05:08:20+00:00"
         },
         {
-            "name": "symfony/clock",
-            "version": "v7.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/clock.git",
-                "reference": "b81435fbd6648ea425d1ee96a2d8e68f4ceacd24"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/clock/zipball/b81435fbd6648ea425d1ee96a2d8e68f4ceacd24",
-                "reference": "b81435fbd6648ea425d1ee96a2d8e68f4ceacd24",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.2",
-                "psr/clock": "^1.0",
-                "symfony/polyfill-php83": "^1.28"
-            },
-            "provide": {
-                "psr/clock-implementation": "1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "Resources/now.php"
-                ],
-                "psr-4": {
-                    "Symfony\\Component\\Clock\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Decouples applications from the system clock",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "clock",
-                "psr20",
-                "time"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/clock/tree/v7.3.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2024-09-25T14:21:43+00:00"
-        },
-        {
             "name": "symfony/console",
             "version": "v7.3.0",
             "source": {
@@ -8885,82 +8927,6 @@
             "time": "2024-09-09T11:45:10+00:00"
         },
         {
-            "name": "symfony/polyfill-php83",
-            "version": "v1.32.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php83.git",
-                "reference": "2fb86d65e2d424369ad2905e83b236a8805ba491"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php83/zipball/2fb86d65e2d424369ad2905e83b236a8805ba491",
-                "reference": "2fb86d65e2d424369ad2905e83b236a8805ba491",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2"
-            },
-            "type": "library",
-            "extra": {
-                "thanks": {
-                    "url": "https://github.com/symfony/polyfill",
-                    "name": "symfony/polyfill"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ],
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php83\\": ""
-                },
-                "classmap": [
-                    "Resources/stubs"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony polyfill backporting some PHP 8.3+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php83/tree/v1.32.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2024-09-09T11:45:10+00:00"
-        },
-        {
             "name": "symfony/polyfill-php84",
             "version": "v1.32.0",
             "source": {
@@ -9177,266 +9143,6 @@
             "time": "2025-04-17T09:11:12+00:00"
         },
         {
-            "name": "symfony/property-access",
-            "version": "v7.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/property-access.git",
-                "reference": "3bcf43665d6aff90547b005348e1e351f4e2174b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/property-access/zipball/3bcf43665d6aff90547b005348e1e351f4e2174b",
-                "reference": "3bcf43665d6aff90547b005348e1e351f4e2174b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.2",
-                "symfony/property-info": "^6.4|^7.0"
-            },
-            "require-dev": {
-                "symfony/cache": "^6.4|^7.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\PropertyAccess\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Provides functions to read and write from/to an object or array using a simple string notation",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "access",
-                "array",
-                "extraction",
-                "index",
-                "injection",
-                "object",
-                "property",
-                "property-path",
-                "reflection"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/property-access/tree/v7.3.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2025-05-10T11:59:09+00:00"
-        },
-        {
-            "name": "symfony/property-info",
-            "version": "v7.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/property-info.git",
-                "reference": "200d230d8553610ada73ac557501dc4609aad31f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/property-info/zipball/200d230d8553610ada73ac557501dc4609aad31f",
-                "reference": "200d230d8553610ada73ac557501dc4609aad31f",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.2",
-                "symfony/deprecation-contracts": "^2.5|^3",
-                "symfony/string": "^6.4|^7.0",
-                "symfony/type-info": "~7.1.9|^7.2.2"
-            },
-            "conflict": {
-                "phpdocumentor/reflection-docblock": "<5.2",
-                "phpdocumentor/type-resolver": "<1.5.1",
-                "symfony/cache": "<6.4",
-                "symfony/dependency-injection": "<6.4",
-                "symfony/serializer": "<6.4"
-            },
-            "require-dev": {
-                "phpdocumentor/reflection-docblock": "^5.2",
-                "phpstan/phpdoc-parser": "^1.0|^2.0",
-                "symfony/cache": "^6.4|^7.0",
-                "symfony/dependency-injection": "^6.4|^7.0",
-                "symfony/serializer": "^6.4|^7.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\PropertyInfo\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kévin Dunglas",
-                    "email": "dunglas@gmail.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Extracts information about PHP class' properties using metadata of popular sources",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "doctrine",
-                "phpdoc",
-                "property",
-                "symfony",
-                "type",
-                "validator"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/property-info/tree/v7.3.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2025-04-04T13:12:05+00:00"
-        },
-        {
-            "name": "symfony/serializer",
-            "version": "v7.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/serializer.git",
-                "reference": "2d86f81b1c506d7e1578789f93280dab4b8411bb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/serializer/zipball/2d86f81b1c506d7e1578789f93280dab4b8411bb",
-                "reference": "2d86f81b1c506d7e1578789f93280dab4b8411bb",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.2",
-                "symfony/deprecation-contracts": "^2.5|^3",
-                "symfony/polyfill-ctype": "~1.8"
-            },
-            "conflict": {
-                "phpdocumentor/reflection-docblock": "<3.2.2",
-                "phpdocumentor/type-resolver": "<1.4.0",
-                "symfony/dependency-injection": "<6.4",
-                "symfony/property-access": "<6.4",
-                "symfony/property-info": "<6.4",
-                "symfony/uid": "<6.4",
-                "symfony/validator": "<6.4",
-                "symfony/yaml": "<6.4"
-            },
-            "require-dev": {
-                "phpdocumentor/reflection-docblock": "^3.2|^4.0|^5.0",
-                "phpstan/phpdoc-parser": "^1.0|^2.0",
-                "seld/jsonlint": "^1.10",
-                "symfony/cache": "^6.4|^7.0",
-                "symfony/config": "^6.4|^7.0",
-                "symfony/console": "^6.4|^7.0",
-                "symfony/dependency-injection": "^7.2",
-                "symfony/error-handler": "^6.4|^7.0",
-                "symfony/filesystem": "^6.4|^7.0",
-                "symfony/form": "^6.4|^7.0",
-                "symfony/http-foundation": "^6.4|^7.0",
-                "symfony/http-kernel": "^6.4|^7.0",
-                "symfony/messenger": "^6.4|^7.0",
-                "symfony/mime": "^6.4|^7.0",
-                "symfony/property-access": "^6.4|^7.0",
-                "symfony/property-info": "^6.4|^7.0",
-                "symfony/translation-contracts": "^2.5|^3",
-                "symfony/type-info": "^7.1",
-                "symfony/uid": "^6.4|^7.0",
-                "symfony/validator": "^6.4|^7.0",
-                "symfony/var-dumper": "^6.4|^7.0",
-                "symfony/var-exporter": "^6.4|^7.0",
-                "symfony/yaml": "^6.4|^7.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Serializer\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Handles serializing and deserializing data structures, including object graphs, into array structures or other formats like XML and JSON.",
-            "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/serializer/tree/v7.3.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2025-05-12T14:48:23+00:00"
-        },
-        {
             "name": "symfony/string",
             "version": "v7.3.0",
             "source": {
@@ -9522,85 +9228,6 @@
                 }
             ],
             "time": "2025-04-20T20:19:01+00:00"
-        },
-        {
-            "name": "symfony/type-info",
-            "version": "v7.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/type-info.git",
-                "reference": "bc9af22e25796d98078f69c0749ab3a9d3454786"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/type-info/zipball/bc9af22e25796d98078f69c0749ab3a9d3454786",
-                "reference": "bc9af22e25796d98078f69c0749ab3a9d3454786",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.2",
-                "psr/container": "^1.1|^2.0",
-                "symfony/deprecation-contracts": "^2.5|^3"
-            },
-            "conflict": {
-                "phpstan/phpdoc-parser": "<1.30"
-            },
-            "require-dev": {
-                "phpstan/phpdoc-parser": "^1.30|^2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\TypeInfo\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mathias Arlaud",
-                    "email": "mathias.arlaud@gmail.com"
-                },
-                {
-                    "name": "Baptiste LEDUC",
-                    "email": "baptiste.leduc@gmail.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Extracts PHP types information.",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "PHPStan",
-                "phpdoc",
-                "symfony",
-                "type"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/type-info/tree/v7.3.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2025-03-30T12:17:06+00:00"
         },
         {
             "name": "symfony/uid",
@@ -9999,40 +9626,44 @@
         },
         {
             "name": "web-auth/webauthn-lib",
-            "version": "5.2.2",
+            "version": "4.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-auth/webauthn-lib.git",
-                "reference": "8937c397c8ae91b5af422ca8aa915c756062da74"
+                "reference": "008b25171c27cf4813420d0de31cc059bcc71f1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/web-auth/webauthn-lib/zipball/8937c397c8ae91b5af422ca8aa915c756062da74",
-                "reference": "8937c397c8ae91b5af422ca8aa915c756062da74",
+                "url": "https://api.github.com/repos/web-auth/webauthn-lib/zipball/008b25171c27cf4813420d0de31cc059bcc71f1a",
+                "reference": "008b25171c27cf4813420d0de31cc059bcc71f1a",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
+                "ext-mbstring": "*",
                 "ext-openssl": "*",
+                "lcobucci/clock": "^2.2|^3.0",
                 "paragonie/constant_time_encoding": "^2.6|^3.0",
-                "php": ">=8.2",
-                "phpdocumentor/reflection-docblock": "^5.3",
+                "php": ">=8.1",
                 "psr/clock": "^1.0",
                 "psr/event-dispatcher": "^1.0",
+                "psr/http-client": "^1.0",
+                "psr/http-factory": "^1.0",
                 "psr/log": "^1.0|^2.0|^3.0",
                 "spomky-labs/cbor-php": "^3.0",
                 "spomky-labs/pki-framework": "^1.0",
-                "symfony/clock": "^6.4|^7.0",
                 "symfony/deprecation-contracts": "^3.2",
-                "symfony/property-access": "^6.4|^7.0",
-                "symfony/property-info": "^6.4|^7.0",
-                "symfony/serializer": "^6.4|^7.0",
-                "symfony/uid": "^6.4|^7.0",
+                "symfony/uid": "^6.1|^7.0",
                 "web-auth/cose-lib": "^4.2.3"
             },
             "suggest": {
+                "phpdocumentor/reflection-docblock": "As of 4.5.x, the phpdocumentor/reflection-docblock component will become mandatory for converting objects such as the Metadata Statement",
+                "psr/clock-implementation": "As of 4.5.x, the PSR Clock implementation will replace lcobucci/clock",
                 "psr/log-implementation": "Recommended to receive logs from the library",
                 "symfony/event-dispatcher": "Recommended to use dispatched events",
+                "symfony/property-access": "As of 4.5.x, the symfony/serializer component will become mandatory for converting objects such as the Metadata Statement",
+                "symfony/property-info": "As of 4.5.x, the symfony/serializer component will become mandatory for converting objects such as the Metadata Statement",
+                "symfony/serializer": "As of 4.5.x, the symfony/serializer component will become mandatory for converting objects such as the Metadata Statement",
                 "web-token/jwt-library": "Mandatory for fetching Metadata Statement from distant sources"
             },
             "type": "library",
@@ -10069,7 +9700,7 @@
                 "webauthn"
             ],
             "support": {
-                "source": "https://github.com/web-auth/webauthn-lib/tree/5.2.2"
+                "source": "https://github.com/web-auth/webauthn-lib/tree/4.9.2"
             },
             "funding": [
                 {
@@ -10081,7 +9712,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2025-03-16T14:38:43+00:00"
+            "time": "2025-01-04T09:47:58+00:00"
         }
     ],
     "aliases": [],
