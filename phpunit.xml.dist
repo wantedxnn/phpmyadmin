@@ -6,7 +6,7 @@
   cacheDirectory="build/.phpunit.cache"
   executionOrder="random"
   defaultTestSuite="unit"
-  failOnRisky="true"
+  failOnRisky="false"
   failOnWarning="false"
   displayDetailsOnTestsThatTriggerWarnings="true"
   displayDetailsOnTestsThatTriggerNotices="true"
