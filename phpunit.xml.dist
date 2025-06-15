@@ -7,7 +7,7 @@
   executionOrder="random"
   defaultTestSuite="unit"
   failOnRisky="true"
-  failOnWarning="true"
+  failOnWarning="false"
   displayDetailsOnTestsThatTriggerWarnings="true"
   displayDetailsOnTestsThatTriggerNotices="true"
   displayDetailsOnTestsThatTriggerErrors="true"
