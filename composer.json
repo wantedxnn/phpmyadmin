@@ -56,7 +56,7 @@
         "ext-pcre": "*",
         "ext-sodium": "*",
         "ext-xml": "*",
-        "composer/ca-bundle": "^1.2",
+        "composer/ca-bundle": "1.5.7",
         "fig/http-message-util": "^1.1",
         "google/recaptcha": "^1.3",
         "laminas/laminas-httphandlerrunner": "^2.6",
@@ -119,7 +119,7 @@
         "roave/security-advisories": "dev-latest",
         "symfony/console": "^7.1",
         "tecnickcom/tcpdf": "6.10.0",
-        "vimeo/psalm": "^6.0",
+        "vimeo/psalm": "6.12.0",
         "web-auth/webauthn-lib": "^4.9"
     },
     "extra": {
