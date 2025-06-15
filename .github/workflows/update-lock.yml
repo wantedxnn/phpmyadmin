@@ -27,7 +27,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.2' # Specify your project's PHP version
+          php-version: '8.3' # Specify your project's PHP version
           extensions: mbstring, xml, dom, zip # Add any other extensions your project needs
           tools: composer # This will install the latest stable composer
 
