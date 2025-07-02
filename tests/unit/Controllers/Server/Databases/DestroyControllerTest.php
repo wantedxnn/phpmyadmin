@@ -39,12 +39,11 @@ class DestroyControllerTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['AllowUserDropDatabase'] = true;
 
-        $relation = new Relation($dbi);
         $controller = new DestroyController(
             $response,
             $dbi,
-            new Transformations($dbi, $relation),
-            new RelationCleanup($dbi, $relation),
+            new Transformations(),
+            new RelationCleanup($dbi, new Relation($dbi)),
             new UserPrivilegesFactory($dbi),
             $config,
         );
