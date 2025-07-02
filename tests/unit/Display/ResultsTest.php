@@ -700,7 +700,7 @@ class ResultsTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $dbi;
 
-        $transformations = new Transformations($dbi, new Relation($dbi));
+        $transformations = new Transformations();
         (new ReflectionProperty(DisplayResults::class, 'mediaTypeMap'))->setValue(
             $this->object,
             $transformations->getMime('db', 'table'),
