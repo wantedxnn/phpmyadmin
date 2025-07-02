@@ -94,11 +94,10 @@ class SaveControllerTest extends AbstractTestCase
         $mock->expects(self::once())->method('__invoke')->with($request)
             ->willReturn(ResponseFactory::create()->createResponse());
 
-        $relation = new Relation($dbi);
         (new SaveController(
             new ResponseRenderer(),
-            $relation,
-            new Transformations($dbi, $relation),
+            new Relation($dbi),
+            new Transformations(),
             $dbi,
             $mock,
             new UserPrivilegesFactory($dbi),
@@ -118,11 +117,10 @@ class SaveControllerTest extends AbstractTestCase
         $class = new ReflectionClass(SaveController::class);
         $method = $class->getMethod('adjustColumnPrivileges');
 
-        $relation = new Relation($dbi);
         $ctrl = new SaveController(
             new ResponseRenderer(),
-            $relation,
-            new Transformations($dbi, $relation),
+            new Relation($dbi),
+            new Transformations(),
             $dbi,
             self::createStub(StructureController::class),
             new UserPrivilegesFactory($dbi),
