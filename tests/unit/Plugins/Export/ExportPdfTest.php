@@ -43,8 +43,11 @@ class ExportPdfTest extends AbstractTestCase
         Export::$bufferNeeded = false;
         Export::$asFile = true;
         Export::$saveOnServer = false;
-        $relation = new Relation($dbi);
-        $this->object = new ExportPdf($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object = new ExportPdf(
+            new Relation($dbi),
+            new Export($dbi),
+            new Transformations(),
+        );
     }
 
     /**
