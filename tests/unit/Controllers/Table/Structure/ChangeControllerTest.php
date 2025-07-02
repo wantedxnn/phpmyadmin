@@ -46,11 +46,10 @@ class ChangeControllerTest extends AbstractTestCase
         $class = new ReflectionClass(ChangeController::class);
         $method = $class->getMethod('displayHtmlForColumnChange');
 
-        $relation = new Relation($this->dbi);
         $ctrl = new ChangeController(
             $response,
             $this->dbi,
-            new ColumnsDefinition($this->dbi, $relation, new Transformations($this->dbi, $relation)),
+            new ColumnsDefinition($this->dbi, new Relation($this->dbi), new Transformations()),
             new UserPrivilegesFactory($this->dbi),
         );
 
