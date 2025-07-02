@@ -34,10 +34,9 @@ class FirstStepControllerTest extends AbstractTestCase
         $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['tables', null, ['test_table']]]);
 
-        $relation = new Relation($dbi);
         $controller = new FirstStepController(
             $response,
-            new Normalization($dbi, $relation, new Transformations($dbi, $relation), $template),
+            new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
         );
         $controller($request);
 
