@@ -47,10 +47,9 @@ class MoveRepeatingGroupTest extends AbstractTestCase
                 'primary_columns' => 'id,col1',
             ]);
 
-        $relation = new Relation($dbi);
         $controller = new MoveRepeatingGroup(
             $response,
-            new Normalization($dbi, $relation, new Transformations($dbi, $relation), $template),
+            new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
         );
         $controller($request);
 
