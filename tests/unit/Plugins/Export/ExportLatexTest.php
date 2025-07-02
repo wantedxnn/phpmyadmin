@@ -58,8 +58,11 @@ class ExportLatexTest extends AbstractTestCase
         ExportPlugin::$singleTable = false;
         Current::$database = 'db';
         Current::$table = 'table';
-        $relation = new Relation($dbi);
-        $this->object = new ExportLatex($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object = new ExportLatex(
+            new Relation($dbi),
+            new Export($dbi),
+            new Transformations(),
+        );
     }
 
     /**
@@ -603,9 +606,7 @@ class ExportLatexTest extends AbstractTestCase
             ->willReturn(['comment' => 'testComment']);
 
         DatabaseInterface::$instance = $dbi;
-        $relation = new Relation($dbi);
-        $this->object->relation = $relation;
-        $this->object->transformations = new Transformations($dbi, $relation);
+        $this->object->relation = new Relation($dbi);
 
         $relationParameters = RelationParameters::fromArray([
             'relwork' => true,
@@ -688,9 +689,7 @@ class ExportLatexTest extends AbstractTestCase
             ->willReturn(['comment' => 'testComment']);
 
         DatabaseInterface::$instance = $dbi;
-        $relation = new Relation($dbi);
-        $this->object->relation = $relation;
-        $this->object->transformations = new Transformations($dbi, $relation);
+        $this->object->relation = new Relation($dbi);
 
         $relationParameters = RelationParameters::fromArray([
             'relwork' => true,
