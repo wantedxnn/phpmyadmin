@@ -32,10 +32,9 @@ class GetColumnsControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         $template = new Template();
 
-        $relation = new Relation($dbi);
         $controller = new GetColumnsController(
             $response,
-            new Normalization($dbi, $relation, new Transformations($dbi, $relation), $template),
+            new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
         );
         $controller(self::createStub(ServerRequest::class));
 
