@@ -80,7 +80,7 @@ SQL;
         );
 
         $relation = new Relation($dbi);
-        $columnsDefinition = new ColumnsDefinition($dbi, $relation, new Transformations($dbi, $relation));
+        $columnsDefinition = new ColumnsDefinition($dbi, $relation, new Transformations());
 
         Current::$database = 'sakila';
         Current::$table = 'actor';
