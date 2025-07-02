@@ -45,8 +45,11 @@ class ExportYamlTest extends AbstractTestCase
         Current::$database = '';
         Current::$table = '';
         Current::$lang = 'en';
-        $relation = new Relation($dbi);
-        $this->object = new ExportYaml($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object = new ExportYaml(
+            new Relation($dbi),
+            new Export($dbi),
+            new Transformations(),
+        );
     }
 
     /**
