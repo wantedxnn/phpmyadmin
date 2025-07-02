@@ -27,6 +27,8 @@ class OverviewControllerTest extends AbstractTestCase
 
         $this->setGlobalConfig();
 
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
+
         Current::$database = 'db';
         Current::$table = 'table';
     }
@@ -35,8 +37,7 @@ class OverviewControllerTest extends AbstractTestCase
     {
         $response = new ResponseRenderer();
 
-        $dbi = $this->createDatabaseInterface();
-        $controller = new OverviewController($response, new Transformations($dbi, new Relation($dbi)));
+        $controller = new OverviewController($response, new Transformations());
 
         $controller(self::createStub(ServerRequest::class));
         $actual = $response->getHTMLResult();
