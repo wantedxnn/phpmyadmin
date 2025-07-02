@@ -27,7 +27,7 @@ class TransformationsTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $dbi = DatabaseInterface::$instance = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$table = 'table';
         Current::$database = 'db';
         $config = Config::getInstance();
@@ -40,7 +40,7 @@ class TransformationsTest extends AbstractTestCase
         $config->selectedServer['table_coords'] = '';
         $config->selectedServer['column_info'] = 'column_info';
 
-        $this->transformations = new Transformations($dbi, new Relation($dbi));
+        $this->transformations = new Transformations();
     }
 
     /**
@@ -207,10 +207,10 @@ class TransformationsTest extends AbstractTestCase
         $dbi->expects(self::any())
             ->method('tryQuery')
             ->willReturn(self::createStub(DummyResult::class));
+        DatabaseInterface::$instance = $dbi;
 
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
-        $this->transformations = new Transformations($dbi, new Relation($dbi));
         // Case 1 : no configuration storage
         $actual = $this->transformations->clear('db');
         self::assertFalse($actual);
