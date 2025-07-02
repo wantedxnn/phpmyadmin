@@ -35,10 +35,9 @@ class CreateNewColumnControllerTest extends AbstractTestCase
         $template = new Template();
         $request = self::createStub(ServerRequest::class);
 
-        $relation = new Relation($dbi);
         $controller = new CreateNewColumnController(
             $response,
-            new Normalization($dbi, $relation, new Transformations($dbi, $relation), $template),
+            new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
             new UserPrivilegesFactory($dbi),
         );
         $controller($request);
