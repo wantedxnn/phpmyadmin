@@ -42,10 +42,9 @@ class CreateNewTablesControllerTest extends AbstractTestCase
                 'newTablesName' => json_encode(['ID, task' => 'batch_log2', 'task' => 'table2']),
             ]);
 
-        $relation = new Relation($dbi);
         $controller = new CreateNewTablesController(
             $response,
-            new Normalization($dbi, $relation, new Transformations($dbi, $relation), $template),
+            new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
         );
         $controller($request);
 
