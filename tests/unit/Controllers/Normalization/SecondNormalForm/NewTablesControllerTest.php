@@ -34,10 +34,9 @@ class NewTablesControllerTest extends AbstractTestCase
             ->withParsedBody([
                 'pd' => json_encode(['ID, task' => [], 'task' => ['timestamp']]),
             ]);
-        $relation = new Relation($dbi);
         $controller = new NewTablesController(
             $response,
-            new Normalization($dbi, $relation, new Transformations($dbi, $relation), $template),
+            new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
         );
         $controller($request);
 
