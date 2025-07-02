@@ -51,8 +51,11 @@ class ExportMediawikiTest extends AbstractTestCase
         Current::$database = '';
         Current::$table = '';
         Current::$lang = 'en';
-        $relation = new Relation($dbi);
-        $this->object = new ExportMediawiki($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object = new ExportMediawiki(
+            new Relation($dbi),
+            new Export($dbi),
+            new Transformations(),
+        );
     }
 
     /**
