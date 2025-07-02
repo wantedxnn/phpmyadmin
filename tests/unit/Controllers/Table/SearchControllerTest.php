@@ -51,7 +51,7 @@ final class SearchControllerTest extends AbstractTestCase
             $dbi,
             $relation,
             new RelationCleanup($dbi, $relation),
-            new Transformations($dbi, $relation),
+            new Transformations(),
             $template,
             new BookmarkRepository($dbi, $relation),
             $config,
