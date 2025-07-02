@@ -257,7 +257,7 @@ class AddFieldControllerTest extends AbstractTestCase
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table'])
             ->withParsedBody(['num_fields' => '1']);
 
-        $transformations = new Transformations($dbi, $relation);
+        $transformations = new Transformations();
         (new AddFieldController(
             $response,
             $transformations,
