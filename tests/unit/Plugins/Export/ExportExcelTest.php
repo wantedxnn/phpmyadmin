@@ -41,8 +41,11 @@ class ExportExcelTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $relation = new Relation($dbi);
-        $this->object = new ExportExcel($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object = new ExportExcel(
+            new Relation($dbi),
+            new Export($dbi),
+            new Transformations(),
+        );
     }
 
     /**
