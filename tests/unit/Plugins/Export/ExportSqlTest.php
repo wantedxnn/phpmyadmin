@@ -74,8 +74,11 @@ class ExportSqlTest extends AbstractTestCase
         ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;
 
-        $relation = new Relation($dbi);
-        $this->object = new ExportSql($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object = new ExportSql(
+            new Relation($dbi),
+            new Export($dbi),
+            new Transformations(),
+        );
         $this->object->useSqlBackquotes(false);
     }
 
@@ -886,9 +889,7 @@ SQL;
             );
 
         DatabaseInterface::$instance = $dbi;
-        $relation = new Relation($dbi);
-        $this->object = new ExportSql($relation, new Export($dbi), new Transformations($dbi, $relation));
-        $this->object->useSqlBackquotes(false);
+        $this->object->relation = new Relation($dbi);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['sql_relation' => 'On', 'sql_mime' => 'On', 'sql_include_comments' => 'On']);
@@ -1400,7 +1401,7 @@ SQL;
             . ') ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE='
             . "latin1_general_ci COMMENT='List' AUTO_INCREMENT=5";
         $flag = false;
-        $result = $this->object->replaceWithAliases('', $sqlQuery, $aliases, $db, $flag);
+        $result = $this->object->replaceWithAliases(null, $sqlQuery, $aliases, $db, $flag);
 
         self::assertSame(
             "CREATE TABLE IF NOT EXISTS `bartest` (\n" .
@@ -1413,7 +1414,7 @@ SQL;
         );
 
         $flag = false;
-        $result = $this->object->replaceWithAliases('', $sqlQuery, [], '', $flag);
+        $result = $this->object->replaceWithAliases(null, $sqlQuery, [], '', $flag);
 
         self::assertSame(
             "CREATE TABLE IF NOT EXISTS foo (\n" .
