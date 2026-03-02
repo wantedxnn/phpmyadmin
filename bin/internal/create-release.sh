@@ -272,7 +272,12 @@ cleanup_composer_vendors() {
         vendor/web-auth/cose-lib/SECURITY.md \
         vendor/laminas/laminas-httphandlerrunner/.laminas-ci.json \
         vendor/twig/twig/phpstan-baseline.neon \
-        vendor/twig/twig/phpstan.neon.dist
+        vendor/twig/twig/phpstan.neon.dist \
+        vendor/spomky-labs/cbor-php/RELEASES.md \
+        vendor/symfony/dependency-injection/Loader/schema/services.schema.json \
+        vendor/twig/twig/splitsh.json \
+        vendor/web-auth/cose-lib/CODE_OF_CONDUCT.md \
+        vendor/web-auth/cose-lib/RELEASES.md
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f \
         -not -name 'dejavusans.*' \
         -not -name 'dejavusansb.*' \
