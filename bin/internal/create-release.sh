@@ -213,7 +213,10 @@ cleanup_composer_vendors() {
         vendor/spomky-labs/pki-framework/SECURITY.md \
         vendor/web-auth/cose-lib/CODE_OF_CONDUCT.md \
         vendor/web-auth/cose-lib/RELEASES.md \
-        vendor/web-auth/cose-lib/SECURITY.md
+        vendor/web-auth/cose-lib/SECURITY.md \
+        vendor/brick/math/codecov.yml \
+        vendor/tecnickcom/tcpdf/Makefile \
+        vendor/web-auth/cose-lib/.agents/skills/merge-up/SKILL.md
 
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f \
         -not -name 'dejavusans.*' \
