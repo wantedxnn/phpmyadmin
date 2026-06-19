@@ -25,7 +25,7 @@ jobs:
           - { version: '6.0', branch: 'master', php-version: '8.2', node-version: '24', python-version: '3.14' }
     steps:
       - name: Check out code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: ${{ matrix.branch }}
 
